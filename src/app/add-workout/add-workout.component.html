@@ -1,0 +1,49 @@
+<div class="max-w-md mx-auto bg-white shadow-xl p-8 mt-8">
+  <form (ngSubmit)="addWorkout()">
+    <div
+      class="mb-4 bg-gray-300 p-2 px-4 rounded-t-lg border border-b-black border-b-2"
+    >
+      <label class="block text-gray-700">User Name*</label>
+      <input
+        type="text"
+        [(ngModel)]="userName"
+        name="userName"
+        required
+        class="p-1 font-semibold bg-transparent outline-none rounded w-full text-black"
+        placeholder="John Doe*"
+      />
+    </div>
+    <div
+      class="mb-4 bg-gray-300 p-2 px-4 rounded-t-lg border border-b-black border-b-2"
+    >
+      <label class="block text-gray-700">Workout Type*</label>
+      <select
+        [(ngModel)]="workoutType"
+        name="workoutType"
+        required
+        class=" bg-transparent outline-none rounded w-full text-black"
+      >
+      <option value="">All</option>
+        <option *ngFor="let type of workoutTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-4 bg-gray-300 p-2 px-4 rounded-t-lg border border-b-black border-b-2">
+      <label class="block text-gray-700">Workout Minutes*</label>
+      <input
+        type="number"
+        [(ngModel)]="workoutMinutes"
+        name="workoutMinutes"
+        required
+        placeholder="Minutes"
+        class=" bg-transparent outline-none rounded w-full text-black"
+      />
+    </div>
+    <div class="text-center"> 
+        <button type="submit" class="text-blue-700 shadow-sm shadow-gray-400 font-bold bg-white p-2 rounded-full w-56">
+          Add Workout
+        </button>
+      </div>
+  </form>
+</div>
